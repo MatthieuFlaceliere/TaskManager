@@ -65,7 +65,7 @@ class TaskListTest {
         TaskList target = new TaskList(tasksStub);
         Task taskToDone = tasksStub.get(0);
         // When
-        target.doneTask(taskToDone);
+        target.doneTask(taskToDone.getId());
         List<Task> resultTasks = target.getTasks();
         // Then
         assertTrue(taskToDone.isDone());

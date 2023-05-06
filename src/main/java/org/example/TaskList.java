@@ -29,8 +29,13 @@ public class TaskList {
         }
     }
 
-    public void doneTask(Task task) {
-        task.setDone();
+    public void doneTask(long id) {
+        for (Task task : taskList) {
+            if (task.getId() == id) {
+                task.setDone();
+                break;
+            }
+        }
     }
 
     public List<Task> getTasks() {
