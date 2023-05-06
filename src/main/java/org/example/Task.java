@@ -44,6 +44,6 @@ public class Task {
     // Méthodes
     @Override
     public String toString() {
-        return "Task [id=" + id + ", description=" + description + ", done=" + done + "]";
+        return id + " - " + description + (done ? " (fait)" : "");
     }
 }
