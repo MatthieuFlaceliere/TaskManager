@@ -51,7 +51,7 @@ class TaskListTest {
         TaskList target = new TaskList(tasksStub);
         Task taskToDelete = tasksStub.get(0);
         // When
-        target.deleteTask(taskToDelete);
+        target.deleteTask(taskToDelete.getId());
         List<Task> resultTasks = target.getTasks();
         // Then
         assertEquals(tasksStub.size() - 1, resultTasks.size());

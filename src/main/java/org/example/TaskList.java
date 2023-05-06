@@ -20,8 +20,13 @@ public class TaskList {
         return task;
     }
 
-    public void deleteTask(Task task) {
-        taskList.remove(task);
+    public void deleteTask(long id) {
+        for (Task task : taskList) {
+            if (task.getId() == id) {
+                taskList.remove(task);
+                break;
+            }
+        }
     }
 
     public void doneTask(Task task) {
