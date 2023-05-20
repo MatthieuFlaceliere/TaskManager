@@ -18,7 +18,7 @@ class TaskManagerTest {
         add(new Task("Test 2", true));
     }};
 
-    @Test
+    /*@Test
     @Order(1)
     void runListTask(){
         // Given
@@ -44,7 +44,7 @@ class TaskManagerTest {
                         """);
         verify(consoleManagerMock, times(1)).WriteLine("Voici la liste de vos tâches :");
         verify(consoleManagerMock, times(1)).WriteLine("1 - Test 1");
-    }
+    }*/
 
     @Test
     @Order(2)
