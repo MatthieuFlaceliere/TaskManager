@@ -10,15 +10,16 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-@FixMethodOrder( MethodSorters.NAME_ASCENDING )
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TaskManagerTest {
 
-    private final List<Task> tasksStub = new ArrayList<>() {{
+    private static final List<Task> tasksStub = new ArrayList<>() {{
         add(new Task("Test 1", false));
         add(new Task("Test 2", true));
     }};
 
     @Test
+    @Order(1)
     void runListTask(){
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
@@ -43,9 +44,11 @@ class TaskManagerTest {
                         """);
         verify(consoleManagerMock, times(1)).WriteLine("Voici la liste de vos tâches :");
         verify(consoleManagerMock, times(1)).WriteLine("1 - Test 1");
+        verify(consoleManagerMock, times(1)).WriteLine("2 - Test 2 (fait)");
     }
 
     @Test
+    @Order(2)
     void runAddTask(){
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
@@ -56,8 +59,6 @@ class TaskManagerTest {
                 .thenReturn("Test 3");
 
         TaskList taskListStub = new TaskList(tasksStub);
-        System.out.println("runAddTask " + taskListStub.getTasks());
-
 
         TaskManager target = new TaskManager(consoleManagerMock, taskListStub);
         // When
@@ -77,6 +78,7 @@ class TaskManagerTest {
     }
 
     @Test
+    @Order(3)
     void runDeleteTask(){
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
@@ -86,7 +88,6 @@ class TaskManagerTest {
                 .thenReturn(5L);
 
         TaskList taskListStub = new TaskList(tasksStub);
-        System.out.println("runDeleteTask " + taskListStub.getTasks());
 
         TaskManager target = new TaskManager(consoleManagerMock, taskListStub);
         // When
@@ -106,6 +107,7 @@ class TaskManagerTest {
     }
 
     @Test
+    @Order(4)
     void runMarkTaskAsDone(){
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
@@ -115,7 +117,6 @@ class TaskManagerTest {
                 .thenReturn(5L);
 
         TaskList taskListStub = new TaskList(tasksStub);
-        System.out.println("runMarkTaskAsDone " + taskListStub.getTasks());
 
         TaskManager target = new TaskManager(consoleManagerMock, taskListStub);
         // When
