@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39d87f1b-cc1d-4acb-aa89-dcea076c91e1" name="Changes" comment="feat: finish test &amp; fix test order">
+    <list default="true" id="39d87f1b-cc1d-4acb-aa89-dcea076c91e1" name="Changes" comment="test: debug CI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/TaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +30,16 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Task" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Task" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Task" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -55,29 +66,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers": "true",
-    "last_directory_selection": "D:/Fichiers/Bachelor/TestLogiciel/Task/src/test/java/org/example",
-    "last_opened_file_path": "D:/Fichiers/Bachelor/TestLogiciel/Task",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Font",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/Fichiers/Bachelor/TestLogiciel/Task/src/test/java/org/example&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Fichiers/Bachelor/TestLogiciel/Task&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Console Font&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example" />
@@ -91,6 +102,8 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="Task.main" />
       <extension name="coverage">
@@ -195,10 +208,17 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.TaskManagerTest" />
+      <item itemvalue="Gradle.TaskManagerTest.runAddTask" />
+      <item itemvalue="Gradle.TaskManagerTest.runDeleteTask" />
+      <item itemvalue="Gradle.TaskManagerTest.runListTask" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.TaskManagerTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.TaskManagerTest.runAddTask" />
         <item itemvalue="Gradle.TaskManagerTest.runListTask" />
         <item itemvalue="Gradle.TaskManagerTest.runDeleteTask" />
@@ -214,7 +234,8 @@
       <option name="presentableId" value="Default" />
       <updated>1683311382636</updated>
       <workItem from="1683311382639" duration="26022000" />
-      <workItem from="1684515700886" duration="2926000" />
+      <workItem from="1684515700886" duration="4112000" />
+      <workItem from="1684571816018" duration="1558000" />
     </task>
     <task id="LOCAL-00001" summary="core: init project">
       <created>1683352866267</created>
@@ -265,7 +286,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684568696891</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test: remove runListTask">
+      <created>1684572317490</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684572317490</updated>
+    </task>
+    <task id="LOCAL-00009" summary="test: debug CI">
+      <created>1684572504881</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684572504881</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +337,9 @@
     <MESSAGE value="fix: done task whit id" />
     <MESSAGE value="feat: task manager &amp; Console Manager &amp; Test" />
     <MESSAGE value="feat: finish test &amp; fix test order" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: finish test &amp; fix test order" />
+    <MESSAGE value="test: remove runListTask" />
+    <MESSAGE value="test: debug CI" />
+    <option name="LAST_COMMIT_MESSAGE" value="test: debug CI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

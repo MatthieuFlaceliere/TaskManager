@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@FixMethodOrder( MethodSorters.NAME_ASCENDING )
 class TaskManagerTest {
 
     private final List<Task> tasksStub = new ArrayList<>() {{
@@ -19,9 +19,7 @@ class TaskManagerTest {
     }};
 
     @Test
-    @Order(1)
     void runListTask(){
-        System.out.println("runListTask ");
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
         when(consoleManagerMock.ReadLong())
@@ -48,9 +46,7 @@ class TaskManagerTest {
     }
 
     @Test
-    @Order(2)
     void runAddTask(){
-        System.out.println("runAddTask ");
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
         when(consoleManagerMock.ReadLong())
@@ -81,9 +77,7 @@ class TaskManagerTest {
     }
 
     @Test
-    @Order(3)
     void runDeleteTask(){
-        System.out.println("runDeleteTask ");
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
         when(consoleManagerMock.ReadLong())
@@ -112,9 +106,7 @@ class TaskManagerTest {
     }
 
     @Test
-    @Order(4)
     void runMarkTaskAsDone(){
-        System.out.println("runMarkTaskAsDone ");
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
         when(consoleManagerMock.ReadLong())
