@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39d87f1b-cc1d-4acb-aa89-dcea076c91e1" name="Changes" comment="test: debug CI">
+    <list default="true" id="39d87f1b-cc1d-4acb-aa89-dcea076c91e1" name="Changes" comment="fix: CI TaskManagerTest.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/TaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +35,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Task" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Task" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -99,87 +106,87 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TaskManagerTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="18" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
-      <module name="Task.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TaskManagerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Task [build]">
+    <configuration name="Task [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.TaskManagerTest&quot;" />
+            <option value="assemble" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TaskManagerTest.runAddTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Task [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.TaskManagerTest.runAddTask&quot;" />
+            <option value="buildDependents" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TaskManagerTest.runDeleteTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Task [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.TaskManagerTest.runDeleteTask&quot;" />
+            <option value="buildNeeded" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Task [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -208,19 +215,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.TaskManagerTest" />
-      <item itemvalue="Gradle.TaskManagerTest.runAddTask" />
-      <item itemvalue="Gradle.TaskManagerTest.runDeleteTask" />
+      <item itemvalue="Gradle.Task [assemble]" />
+      <item itemvalue="Gradle.Task [buildDependents]" />
+      <item itemvalue="Gradle.Task [buildNeeded]" />
+      <item itemvalue="Gradle.Task [build]" />
       <item itemvalue="Gradle.TaskManagerTest.runListTask" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.TaskManagerTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.TaskManagerTest.runAddTask" />
+        <item itemvalue="Gradle.Task [build]" />
+        <item itemvalue="Gradle.Task [assemble]" />
+        <item itemvalue="Gradle.Task [buildDependents]" />
         <item itemvalue="Gradle.TaskManagerTest.runListTask" />
-        <item itemvalue="Gradle.TaskManagerTest.runDeleteTask" />
+        <item itemvalue="Gradle.Task [buildNeeded]" />
       </list>
     </recent_temporary>
   </component>
@@ -235,7 +242,7 @@
       <workItem from="1683311382639" duration="26022000" />
       <workItem from="1684515700886" duration="4112000" />
       <workItem from="1684571816018" duration="1558000" />
-      <workItem from="1684574192112" duration="312000" />
+      <workItem from="1684574192112" duration="7137000" />
     </task>
     <task id="LOCAL-00001" summary="core: init project">
       <created>1683352866267</created>
@@ -300,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684572504881</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix: CI TaskManagerTest.java">
+      <created>1684574817957</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684574817957</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +353,8 @@
     <MESSAGE value="feat: finish test &amp; fix test order" />
     <MESSAGE value="test: remove runListTask" />
     <MESSAGE value="test: debug CI" />
-    <option name="LAST_COMMIT_MESSAGE" value="test: debug CI" />
+    <MESSAGE value="fix: CI TaskManagerTest.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: CI TaskManagerTest.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

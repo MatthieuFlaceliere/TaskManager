@@ -1,22 +1,38 @@
 package org.example;
 
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
+import org.mockito.ArgumentCaptor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TaskManagerTest {
 
-    private static final List<Task> tasksStub = new ArrayList<>() {{
+    private final static List<Task> tasksStub = new ArrayList<>() {{
         add(new Task("Test 1", false));
         add(new Task("Test 2", true));
     }};
+    private final String MENU = """
+                        Bienvenue dans votre gestionnaire de tâches !
+                        Que souhaitez-vous faire ?
+                        1. Lister les tâches à faire
+                        2. Ajouter une tâche
+                        3. Supprimer une tâche
+                        4. Marquer une tâche comme faite
+                        5. Quitter
+                        """;
+    private final String LIST_TASKS = "Voici la liste de vos tâches :";
+    private final String ADD_TASK = "Quelle tâche souhaitez-vous ajouter ?";
+    private final String TASK_ADDED = "Tâche ajoutée !";
+    private final String DELETE_TASK = "Quelle tâche souhaitez-vous supprimer ?";
+    private final String TASK_DELETED = "Tâche supprimée !";
+    private final String MARK_AS_DONE = "Quelle tâche souhaitez-vous marquer comme faite ?";
+    private final String TASK_MARKED_AS_DONE = "Tâche marquée comme faite !";
+    private final String UNKNOWN_CHOICE = "Je n'ai pas compris votre choix.";
 
     @Test
     @Order(1)
@@ -33,18 +49,15 @@ class TaskManagerTest {
         // When
         target.run();
         // Then
-        verify(consoleManagerMock, times(2)).WriteLine("""
-                        Bienvenue dans votre gestionnaire de tâches !
-                        Que souhaitez-vous faire ?
-                        1. Lister les tâches à faire
-                        2. Ajouter une tâche
-                        3. Supprimer une tâche
-                        4. Marquer une tâche comme faite
-                        5. Quitter
-                        """);
-        verify(consoleManagerMock, times(1)).WriteLine("Voici la liste de vos tâches :");
-        verify(consoleManagerMock, times(1)).WriteLine("1 - Test 1");
-        verify(consoleManagerMock, times(1)).WriteLine("2 - Test 2 (fait)");
+        ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
+        verify(consoleManagerMock, times(6)).WriteLine(argumentCaptor.capture());
+        List<String> capturedArguments = argumentCaptor.getAllValues();
+        assertEquals(MENU, capturedArguments.get(0));
+        assertEquals(MENU, capturedArguments.get(4));
+        assertEquals(LIST_TASKS, capturedArguments.get(1));
+        assertEquals(tasksStub.get(0).toString(), capturedArguments.get(2));
+        assertEquals(tasksStub.get(1).toString(), capturedArguments.get(3));
+        assertEquals(UNKNOWN_CHOICE, capturedArguments.get(5));
     }
 
     @Test
@@ -64,17 +77,14 @@ class TaskManagerTest {
         // When
         target.run();
         // Then
-        verify(consoleManagerMock, times(2)).WriteLine("""
-                        Bienvenue dans votre gestionnaire de tâches !
-                        Que souhaitez-vous faire ?
-                        1. Lister les tâches à faire
-                        2. Ajouter une tâche
-                        3. Supprimer une tâche
-                        4. Marquer une tâche comme faite
-                        5. Quitter
-                        """);
-        verify(consoleManagerMock, times(1)).WriteLine("Quelle tâche souhaitez-vous ajouter ?");
-        verify(consoleManagerMock, times(1)).WriteLine("Tâche ajoutée !");
+        ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
+        verify(consoleManagerMock, times(5)).WriteLine(argumentCaptor.capture());
+        List<String> capturedArguments = argumentCaptor.getAllValues();
+        assertEquals(MENU, capturedArguments.get(0));
+        assertEquals(ADD_TASK, capturedArguments.get(1));
+        assertEquals(TASK_ADDED, capturedArguments.get(2));
+        assertEquals(MENU, capturedArguments.get(3));
+        assertEquals(UNKNOWN_CHOICE, capturedArguments.get(4));
     }
 
     @Test
@@ -93,17 +103,16 @@ class TaskManagerTest {
         // When
         target.run();
         // Then
-        verify(consoleManagerMock, times(2)).WriteLine("""
-                        Bienvenue dans votre gestionnaire de tâches !
-                        Que souhaitez-vous faire ?
-                        1. Lister les tâches à faire
-                        2. Ajouter une tâche
-                        3. Supprimer une tâche
-                        4. Marquer une tâche comme faite
-                        5. Quitter
-                        """);
-        verify(consoleManagerMock, times(1)).WriteLine("Quelle tâche souhaitez-vous supprimer ?");
-        verify(consoleManagerMock, times(1)).WriteLine("Tâche supprimée !");
+        ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
+        verify(consoleManagerMock, times(7)).WriteLine(argumentCaptor.capture());
+        List<String> capturedArguments = argumentCaptor.getAllValues();
+        assertEquals(MENU, capturedArguments.get(0));
+        assertEquals(tasksStub.get(0).toString(), capturedArguments.get(1));
+        assertEquals(tasksStub.get(1).toString(), capturedArguments.get(2));
+        assertEquals(DELETE_TASK, capturedArguments.get(3));
+        assertEquals(TASK_DELETED, capturedArguments.get(4));
+        assertEquals(MENU, capturedArguments.get(5));
+        assertEquals(UNKNOWN_CHOICE, capturedArguments.get(6));
     }
 
     @Test
@@ -115,23 +124,23 @@ class TaskManagerTest {
                 .thenReturn(4L)
                 .thenReturn(1L)
                 .thenReturn(5L);
-
-        TaskList taskListStub = new TaskList(tasksStub);
+        List<Task> tasksStubForTaskAsDone = new ArrayList<>() {{
+            add(new Task("Test do mark as done", false));
+        }};
+        TaskList taskListStub = new TaskList(tasksStubForTaskAsDone);
 
         TaskManager target = new TaskManager(consoleManagerMock, taskListStub);
         // When
         target.run();
         // Then
-        verify(consoleManagerMock, times(2)).WriteLine("""
-                        Bienvenue dans votre gestionnaire de tâches !
-                        Que souhaitez-vous faire ?
-                        1. Lister les tâches à faire
-                        2. Ajouter une tâche
-                        3. Supprimer une tâche
-                        4. Marquer une tâche comme faite
-                        5. Quitter
-                        """);
-        verify(consoleManagerMock, times(1)).WriteLine("Quelle tâche souhaitez-vous marquer comme faite ?");
-        verify(consoleManagerMock, times(1)).WriteLine("Tâche marquée comme faite !");
+        ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
+        verify(consoleManagerMock, times(6)).WriteLine(argumentCaptor.capture());
+        List<String> capturedArguments = argumentCaptor.getAllValues();
+        assertEquals(MENU, capturedArguments.get(0));
+        assertEquals(tasksStubForTaskAsDone.get(0).toString(), capturedArguments.get(1));
+        assertEquals(MARK_AS_DONE, capturedArguments.get(2));
+        assertEquals(TASK_MARKED_AS_DONE, capturedArguments.get(3));
+        assertEquals(MENU, capturedArguments.get(4));
+        assertEquals(UNKNOWN_CHOICE, capturedArguments.get(5));
     }
 }
