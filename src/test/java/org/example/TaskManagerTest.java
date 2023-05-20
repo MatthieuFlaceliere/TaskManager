@@ -18,9 +18,10 @@ class TaskManagerTest {
         add(new Task("Test 2", true));
     }};
 
-    /*@Test
+    @Test
     @Order(1)
     void runListTask(){
+        System.out.println("runListTask ");
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
         when(consoleManagerMock.ReadLong())
@@ -44,11 +45,12 @@ class TaskManagerTest {
                         """);
         verify(consoleManagerMock, times(1)).WriteLine("Voici la liste de vos tâches :");
         verify(consoleManagerMock, times(1)).WriteLine("1 - Test 1");
-    }*/
+    }
 
     @Test
     @Order(2)
     void runAddTask(){
+        System.out.println("runAddTask ");
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
         when(consoleManagerMock.ReadLong())
@@ -81,6 +83,7 @@ class TaskManagerTest {
     @Test
     @Order(3)
     void runDeleteTask(){
+        System.out.println("runDeleteTask ");
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
         when(consoleManagerMock.ReadLong())
@@ -111,6 +114,7 @@ class TaskManagerTest {
     @Test
     @Order(4)
     void runMarkTaskAsDone(){
+        System.out.println("runMarkTaskAsDone ");
         // Given
         IConsoleManager consoleManagerMock = mock(IConsoleManager.class);
         when(consoleManagerMock.ReadLong())
